@@ -8,7 +8,8 @@ public abstract class Player : MonoBehaviour
     // Config params
     [Header("Config")]
     [SerializeField] protected Bullet bullet;
-    [SerializeField] protected GameObject VFX;
+    [SerializeField] protected GameObject deathEffect;
+    [SerializeField] float maxHP = 100f;
     [SerializeField] protected float speed = 10f;
     [SerializeField] protected float gasolineConsumptionRates = 0.02f; // Per speed
 
@@ -25,12 +26,20 @@ public abstract class Player : MonoBehaviour
 
     // Cached references
     protected GamePhase gamePhase;
+    protected GameSelection gameSelection;
     protected Image healthBarImg;
     protected Image gasolineBarImg;
+
+    // State variable
+    float currentHP;
+    public bool isHit;
 
     protected virtual void Start()
     {
         gamePhase = FindObjectOfType<GamePhase>();
+        gameSelection = FindObjectOfType<GameSelection>();
+        
+        currentHP = maxHP;
     }
 
     protected virtual void Update()
@@ -48,18 +57,23 @@ public abstract class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(activateItem1))
         {
-            FindObjectOfType<GamePhase>().SetPlayerActivatedItem(1);
+            FindObjectOfType<GamePhase>().ActivateItem(0);
         }
     }
 
     public abstract bool IsMyTurn();
 
-    private void Shoot()
+    public void Shoot()
     {
         if (Input.GetKeyDown(shootKey))
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            LaunchBullet();
         }
+    }
+
+    public void LaunchBullet()
+    {
+        Instantiate(bullet, transform.position, transform.rotation);
     }
 
     private void Move()
@@ -83,18 +97,39 @@ public abstract class Player : MonoBehaviour
 
     private void CheckHP()
     {
-        if (healthBarImg.fillAmount <= 0)
+        healthBarImg.fillAmount = currentHP / maxHP;
+        if (currentHP <= 0)
         {
             Destroy(gameObject);
-            Instantiate(VFX, transform.position, transform.rotation);
+            Instantiate(deathEffect, transform.position, transform.rotation);
         }
+    }
+
+    public float GetCurrentHP()
+    {
+        return currentHP;
+    }
+
+    public void SetCurrentHP(float hp)
+    {
+        currentHP = hp;
+    }
+
+    public Bullet GetBulletPrefab()
+    {
+        return bullet;
     }
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            healthBarImg.fillAmount -= collision.gameObject.GetComponent<Bullet>().GetDamage();
+            isHit = true;
+            currentHP -= collision.gameObject.GetComponent<Bullet>().GetDamage();
+        }
+        else if (collision.gameObject.tag == "Bullet Clone")
+        {
+            currentHP -= collision.gameObject.GetComponent<BulletClone>().GetDamage();
         }
     }
 }

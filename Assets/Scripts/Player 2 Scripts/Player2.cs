@@ -19,6 +19,11 @@ public class Player2 : Player
         activateItem1 = KeyCode.Keypad1;
         activateItem2 = KeyCode.Keypad2;
         activateItem3 = KeyCode.Keypad3;
+
+        if (gameSelection.player2Type == GameSelection.TankType.Ignition)
+        {
+            gameObject.AddComponent<Ignition>();
+        }
     }
 
     public override bool IsMyTurn()

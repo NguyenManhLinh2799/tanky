@@ -2459,7 +2459,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1245560285
 GameObject:
@@ -2820,7 +2820,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1433749601
@@ -2831,6 +2831,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433749598}
   m_CullTransparentMesh: 0
+--- !u!1001 &1488403782
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086146982718321564, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781314413459356321, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: player1Items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781314413459356321, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: player2Items.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781314413459356321, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: player1Items.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781314413459356321, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: player2Items.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413911622341600265, guid: 56c2482e376a10d478fba646e41917a9,
+        type: 3}
+      propertyPath: m_Name
+      value: Game Selection
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56c2482e376a10d478fba646e41917a9, type: 3}
 --- !u!1 &1656518527
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,7 +3439,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1871912862
@@ -3769,7 +3858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsBeforeNextTurn: 2
-  acivatedItem: 0
+  isPlayer1Turn: 1
+  acivatedIndex: -1
 --- !u!1 &1976530118
 GameObject:
   m_ObjectHideFlags: 0

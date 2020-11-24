@@ -5,13 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadChoosingTank()
+    public void LoadPlayer1ChoosingTank()
     {
-        SceneManager.LoadScene("Choosing Tank");
+        SceneManager.LoadScene("Player 1 Choosing Tank");
     }
 
-    public void LoadChoosingItems()
+    public void LoadPlayer2ChoosingTank()
     {
-        SceneManager.LoadScene("Choosing Items");
+        SceneManager.LoadScene("Player 2 Choosing Tank");
+    }
+
+    public void LoadPlayer1ChoosingItems()
+    {
+        SceneManager.LoadScene("Player 1 Choosing Items");
+    }
+
+    public void LoadPlayer2ChoosingItems()
+    {
+        SceneManager.LoadScene("Player 2 Choosing Items");
+    }
+
+    public void LoadMainScene()
+    {
+        SceneManager.LoadScene("Main Scene");
     }
 }

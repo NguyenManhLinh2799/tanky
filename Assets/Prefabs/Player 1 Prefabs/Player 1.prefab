@@ -145,12 +145,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4052363443179269650, guid: 12fa6ec8a5196ca468eaf1e612b569e5, type: 3}
-  VFX: {fileID: 1862459798516899315, guid: 80f97b55bbee34141abfc431bc806374, type: 3}
+  deathEffect: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c,
+    type: 3}
+  maxHP: 100
   speed: 10
   gasolineConsumptionRates: 0.02
   shootKey: 0
   moveLeftKey: 0
   moveRightKey: 0
+  activateItem1: 0
+  activateItem2: 0
+  activateItem3: 0
+  items: []
 --- !u!1001 &3842702176358143754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 896136838719360287, guid: 8a57b3870cb1472479c2ebc8e0d53459,
         type: 3}
       propertyPath: m_Name
-      value: Gun 1
+      value: Cannon 1
       objectReference: {fileID: 0}
     - target: {fileID: 896136838719360287, guid: 8a57b3870cb1472479c2ebc8e0d53459,
         type: 3}

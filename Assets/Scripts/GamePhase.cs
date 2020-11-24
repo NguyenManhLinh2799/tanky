@@ -13,21 +13,21 @@ public class GamePhase : MonoBehaviour
     // State variables
     public bool isPlayer1Turn = true;
     bool isBulletLanded = true;
-    public int acivatedItem = 0;
+    public int acivatedIndex = -1;
 
     private void Start()
     {
         cameraController = FindObjectOfType<CameraController>();
     }
 
-    public int GetPlayerActivatedItem()
+    public int GetActivatedIndex()
     {
-        return acivatedItem;
+        return acivatedIndex;
     }
 
-    public void SetPlayerActivatedItem(int index)
+    public void ActivateItem(int index)
     {
-        acivatedItem = index;
+        acivatedIndex = index;
     }
 
     public void SwitchToPlayer1Turn()
