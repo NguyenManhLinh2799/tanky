@@ -4,14 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
-  - Player 1
-  - Player 2
-  - Health Bar 1
-  - Health Bar 2
-  - Gasoline Bar 1
-  - Gasoline Bar 2
-  - Bullet Clone
+  - Projectile
   layers:
   - Default
   - TransparentFX

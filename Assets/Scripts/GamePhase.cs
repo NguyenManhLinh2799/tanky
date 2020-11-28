@@ -5,60 +5,65 @@ using UnityEngine;
 public class GamePhase : MonoBehaviour
 {
     // Config params
+    public GameObject player1;
+    public GameObject player2;
     [SerializeField] float secondsBeforeNextTurn = 2f;
 
     // Cache references
     CameraController cameraController;
 
     // State variables
-    public bool isPlayer1Turn = true;
-    bool isBulletLanded = true;
-    public int acivatedIndex = -1;
+    public bool isPlayer1Turn;
+    public GameObject playerThatIsInTurn;
 
     private void Start()
     {
         cameraController = FindObjectOfType<CameraController>();
-    }
-
-    public int GetActivatedIndex()
-    {
-        return acivatedIndex;
-    }
-
-    public void ActivateItem(int index)
-    {
-        acivatedIndex = index;
+        SwitchToPlayer1Turn();
     }
 
     public void SwitchToPlayer1Turn()
     {
-        isPlayer1Turn = true;
+        try
+        {
+            player1.GetComponent<Move>().isMyTurn = true;
+            player2.GetComponent<Move>().isMyTurn = false;
+            playerThatIsInTurn = player1;
+            isPlayer1Turn = true;
+            cameraController.FollowPlayer1();
+        }
+        catch (MissingReferenceException ignored)
+        {
+
+        }
     }
 
     public void SwitchToPlayer2Turn()
     {
-        isPlayer1Turn = false;
+        try
+        {
+            player2.GetComponent<Move>().isMyTurn = true;
+            player1.GetComponent<Move>().isMyTurn = false;
+            playerThatIsInTurn = player2;
+            isPlayer1Turn = false;
+            cameraController.FollowPlayer2();
+        }
+        catch (MissingReferenceException ignored)
+        {
+
+        }
     }
 
-    public void StartLaunchingPhase()
+    public void WaitProjectileToBeLanded()
     {
-        isBulletLanded = false;
-        cameraController.FollowBullet();
+        player1.GetComponent<Move>().isMyTurn = false;
+        player2.GetComponent<Move>().isMyTurn = false;
+        cameraController.FollowProjectile();
     }
 
-    public void EndLaunchingPhase()
+    public void GoToNextTurn()
     {
         StartCoroutine(WaitBeforeNextTurn());
-    }
-
-    public bool IsPlayer1Turn()
-    {
-        return isPlayer1Turn && isBulletLanded;
-    }
-
-    public bool IsPlayer2Turn()
-    {
-        return !isPlayer1Turn && isBulletLanded;
     }
 
     IEnumerator WaitBeforeNextTurn()
@@ -67,13 +72,10 @@ public class GamePhase : MonoBehaviour
         if (isPlayer1Turn)
         {
             SwitchToPlayer2Turn();
-            cameraController.FollowPlayer2();
         }
         else
         {
             SwitchToPlayer1Turn();
-            cameraController.FollowPlayer1();
         }
-        isBulletLanded = true;
     }
 }

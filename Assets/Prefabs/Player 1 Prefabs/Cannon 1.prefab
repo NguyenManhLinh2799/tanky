@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3263485852749411824}
   - component: {fileID: 6271232275473048013}
-  - component: {fileID: -8711251289308547649}
   m_Layer: 0
   m_Name: Cannon 1
   m_TagString: Untagged
@@ -82,18 +81,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8711251289308547649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896136838719360287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6959e0518b977e48810daf0623f637d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deltaZ: 1
-  maxAngle: 180
-  minAngle: 0

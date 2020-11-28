@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Cached references
+    GamePhase gamePhase;
     GameObject gameObjectToBeFollowed;
 
     private void Start()
     {
-        gameObjectToBeFollowed = GameObject.FindGameObjectWithTag("Player 1");
+        gamePhase = FindObjectOfType<GamePhase>();
+        FollowPlayer1();
     }
 
     private void Update()
@@ -22,16 +23,16 @@ public class CameraController : MonoBehaviour
 
     public void FollowPlayer1()
     {
-        gameObjectToBeFollowed = GameObject.FindGameObjectWithTag("Player 1");
+        gameObjectToBeFollowed = gamePhase.player1;
     }
 
     public void FollowPlayer2()
     {
-        gameObjectToBeFollowed = GameObject.FindGameObjectWithTag("Player 2");
+        gameObjectToBeFollowed = gamePhase.player2;
     }
 
-    public void FollowBullet()
+    public void FollowProjectile()
     {
-        gameObjectToBeFollowed = GameObject.FindGameObjectWithTag("Bullet");
+        gameObjectToBeFollowed = GameObject.FindGameObjectWithTag("Projectile");
     }
 }

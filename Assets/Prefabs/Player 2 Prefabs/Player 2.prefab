@@ -12,10 +12,14 @@ GameObject:
   - component: {fileID: 2349750144351565553}
   - component: {fileID: 2349750144351565552}
   - component: {fileID: 2349750144351565551}
-  - component: {fileID: -1724066659399127641}
+  - component: {fileID: 3054283053034884688}
+  - component: {fileID: 282919547712452086}
+  - component: {fileID: -3491406446916303594}
+  - component: {fileID: 5456595558091778493}
+  - component: {fileID: 1598392961671648312}
   m_Layer: 9
   m_Name: Player 2
-  m_TagString: Player 2
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +136,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-1724066659399127641
+--- !u!114 &3054283053034884688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,22 +145,85 @@ MonoBehaviour:
   m_GameObject: {fileID: 2349750144351565550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e077716bc90806d49bc4c848087b3347, type: 3}
+  m_Script: {fileID: 11500000, guid: ddf88b42fa78a064cb71c37eae67cf8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4052363443179269650, guid: 12fa6ec8a5196ca468eaf1e612b569e5, type: 3}
+  moveLeftKey: 276
+  moveRightKey: 275
+  speed: 10
+  maxGasoline: 100
+  currentGasoline: 0
+  gasolineConsumptionRates: 3
+  gasolineBarImg: {fileID: 0}
+  isMyTurn: 0
+--- !u!114 &282919547712452086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349750144351565550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340cbf7d3083f964b853ebabc4db1855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   deathEffect: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c,
     type: 3}
   maxHP: 100
-  speed: 10
-  gasolineConsumptionRates: 0.02
-  shootKey: 0
-  moveLeftKey: 0
-  moveRightKey: 0
-  activateItem1: 0
-  activateItem2: 0
-  activateItem3: 0
+  currentHP: 0
+  healthBarImg: {fileID: 0}
+--- !u!114 &-3491406446916303594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349750144351565550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802ff0f59616a7e4fb7bc46b9d425952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passivePrefab: {fileID: 0}
+--- !u!114 &5456595558091778493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349750144351565550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ae7de3e2bd0544cb6bd316e629b5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon: {fileID: 8060679288024154762}
+  rotateClockwiseKey: 273
+  rotateCounterclockwiseKey: 274
+  increasePowerKey: 270
+  decreasePowerKey: 269
+  powerSlider: {fileID: 0}
+--- !u!114 &1598392961671648312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349750144351565550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa1d62ee054c6d4491ba3a80b750a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8157590894723528534, guid: 12fa6ec8a5196ca468eaf1e612b569e5,
+    type: 3}
   items: []
+  shootKey: 271
+  activateItem1Key: 257
+  activateItem2Key: 258
+  activateItem3Key: 259
+  isDisabled: 0
 --- !u!1001 &4798429329449252730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -229,7 +296,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 135
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2961732946640991541, guid: af418592c2642574fb27b0ca6036e5d5, type: 3}
+    - {fileID: 4748189500199676694, guid: af418592c2642574fb27b0ca6036e5d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af418592c2642574fb27b0ca6036e5d5, type: 3}
 --- !u!4 &8060679288024154762 stripped
 Transform:

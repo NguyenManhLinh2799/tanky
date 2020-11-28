@@ -417,6 +417,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &141953869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2349750144351565550, guid: bee84b8850144e145b0540a935b6a4da,
+    type: 3}
+  m_PrefabInstance: {fileID: 2098348109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &196937062
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,7 +433,6 @@ GameObject:
   m_Component:
   - component: {fileID: 196937063}
   - component: {fileID: 196937065}
-  - component: {fileID: 196937064}
   m_Layer: 5
   m_Name: Power Slider 2
   m_TagString: Untagged
@@ -458,18 +463,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: 40}
   m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &196937064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196937062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 881b136dbb702c7469bca439593b2066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &196937065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,19 +512,7 @@ MonoBehaviour:
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4052363443179269650, guid: 12fa6ec8a5196ca468eaf1e612b569e5,
-          type: 3}
-        m_MethodName: OnPowerChanged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &227699819
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +818,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426058585}
   m_CullTransparentMesh: 0
+--- !u!1 &462385721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2349750144351565550, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+    type: 3}
+  m_PrefabInstance: {fileID: 2060826608}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &479946694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,10 +1696,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2000,7 +1987,7 @@ GameObject:
   - component: {fileID: 781413572}
   m_Layer: 5
   m_Name: Gasoline Bar Image 2
-  m_TagString: Gasoline Bar 2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2769,7 +2756,7 @@ GameObject:
   - component: {fileID: 1433749600}
   m_Layer: 5
   m_Name: Gasoline Bar Image 1
-  m_TagString: Gasoline Bar 1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3003,7 +2990,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1672729741}
   - component: {fileID: 1672729742}
-  - component: {fileID: 1672729743}
   m_Layer: 5
   m_Name: Power Slider 1
   m_TagString: Untagged
@@ -3032,7 +3018,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 300, y: 40}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1672729742
 MonoBehaviour:
@@ -3083,31 +3069,7 @@ MonoBehaviour:
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4052363443179269650, guid: 12fa6ec8a5196ca468eaf1e612b569e5,
-          type: 3}
-        m_MethodName: OnPowerChanged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1672729743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672729740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49764d457b41d304395631d36707e76c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!1 &1686549540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,7 +3350,7 @@ GameObject:
   - component: {fileID: 1871912861}
   m_Layer: 5
   m_Name: Health Bar Image 1
-  m_TagString: Health Bar 1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3857,9 +3819,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3047b1fd9444087458220a1976ebb492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 462385721}
+  player2: {fileID: 141953869}
   secondsBeforeNextTurn: 2
   isPlayer1Turn: 1
-  acivatedIndex: -1
+  playerThatIsInTurn: {fileID: 0}
 --- !u!1 &1976530118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,6 +3978,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 236236142887239882, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: healthBarImg
+      value: 
+      objectReference: {fileID: 1871912861}
+    - target: {fileID: 1572634647714335620, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: powerSlider
+      value: 
+      objectReference: {fileID: 1672729740}
     - target: {fileID: 2349750144351565550, guid: f11fb2b7df7836c4f9387bddd72c9a62,
         type: 3}
       propertyPath: m_Name
@@ -4074,6 +4048,68 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2962973200330761071, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: passivePrefab
+      value: 
+      objectReference: {fileID: 4676703856125467101, guid: 88547d65ec452444586c2a6dd4d012ae,
+        type: 3}
+    - target: {fileID: 4200272287392922146, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200272287392922146, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: f5abbcca9f272f940a97cc1c5076ffd0,
+        type: 3}
+    - target: {fileID: 4200272287392922146, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: 7e244c3874757b641b2ad762984e2523,
+        type: 3}
+    - target: {fileID: 4200272287392922146, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 4490406121046104159, guid: 65d77ad5d6988df48bd5567ce1735692,
+        type: 3}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: f5abbcca9f272f940a97cc1c5076ffd0,
+        type: 3}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: 7e244c3874757b641b2ad762984e2523,
+        type: 3}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 4490406121046104159, guid: 65d77ad5d6988df48bd5567ce1735692,
+        type: 3}
+    - target: {fileID: 6979965232449018337, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: powerSlider
+      value: 
+      objectReference: {fileID: 1672729740}
+    - target: {fileID: 8280128074947871949, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: gasolineBarImg
+      value: 
+      objectReference: {fileID: 1433749600}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f11fb2b7df7836c4f9387bddd72c9a62, type: 3}
 --- !u!1001 &2098348109
@@ -4083,6 +4119,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3491406446916303594, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: passivePrefab
+      value: 
+      objectReference: {fileID: 4676703856125467101, guid: d60464c947fd4be459cc4fc7c2489700,
+        type: 3}
+    - target: {fileID: 282919547712452086, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: healthBarImg
+      value: 
+      objectReference: {fileID: 2137973964}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: items.Array.data[0]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: f5abbcca9f272f940a97cc1c5076ffd0,
+        type: 3}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: 7e244c3874757b641b2ad762984e2523,
+        type: 3}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 4490406121046104159, guid: 65d77ad5d6988df48bd5567ce1735692,
+        type: 3}
     - target: {fileID: 2349750144351565550, guid: bee84b8850144e145b0540a935b6a4da,
         type: 3}
       propertyPath: m_Name
@@ -4143,6 +4213,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3054283053034884688, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: gasolineBarImg
+      value: 
+      objectReference: {fileID: 781413572}
+    - target: {fileID: 5456595558091778493, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: powerSlider
+      value: 
+      objectReference: {fileID: 196937062}
+    - target: {fileID: 7749923518182589007, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: powerSlider
+      value: 
+      objectReference: {fileID: 196937062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bee84b8850144e145b0540a935b6a4da, type: 3}
 --- !u!1 &2137973962
@@ -4158,7 +4243,7 @@ GameObject:
   - component: {fileID: 2137973964}
   m_Layer: 5
   m_Name: Health Bar Image 2
-  m_TagString: Health Bar 2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
