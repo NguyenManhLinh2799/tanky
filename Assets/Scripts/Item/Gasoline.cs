@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : SelfUse
+public class Gasoline : SelfUse
 {
-    float healAmount = 30f;
+    float gasolineRegenAmount = 30f;
 
     protected override void Start()
     {
         base.Start();
         Instantiate(effectPrefab, transform.position, effectPrefab.transform.rotation);
-        playerThatUseThis.GetComponent<Health>().ModifyHealth(healAmount);
+        playerThatUseThis.GetComponent<Move>().ModifyGasoline(gasolineRegenAmount);
         Destroy(gameObject, 1f);
     }
 }

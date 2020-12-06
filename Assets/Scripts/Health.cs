@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField] protected GameObject deathEffect;
-    [SerializeField] float maxHP = 100f;
-    [SerializeField] float currentHP;
+    public float maxHP = 100f;
+    public float currentHP;
     [SerializeField] Image healthBarImg;
 
     bool isHit = false;
@@ -32,9 +32,9 @@ public class Health : MonoBehaviour
     public void ModifyHealth(float deltaHP)
     {
         currentHP += deltaHP;
-        if (currentHP > 100)
+        if (currentHP > maxHP)
         {
-            currentHP = 100;
+            currentHP = maxHP;
         }
     }
 

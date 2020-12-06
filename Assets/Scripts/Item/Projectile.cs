@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] protected float damage = 15f;
-    [SerializeField] protected GameObject explosionEffect;
+    public float damage = 15f;
+    [SerializeField] protected GameObject effectPrefab;
     protected GamePhase gamePhase;
     protected static GameObject playerThatShootThis;
+
+    protected bool isLanded = false;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -29,18 +30,22 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (!isLanded)
         {
-            GameObject player = collision.gameObject;
-            player.GetComponent<Health>().ModifyHealth(-damage);
-            player.GetComponent<Health>().Hit();
+            isLanded = true;
+            if (collision.gameObject.tag == "Player")
+            {
+                GameObject player = collision.gameObject;
+                player.GetComponent<Health>().ModifyHealth(-damage);
+                player.GetComponent<Health>().Hit();
+            }
+            Instantiate(effectPrefab, transform.position, transform.rotation);
+            gamePhase.GoToNextTurn();
         }
-        Instantiate(explosionEffect, transform.position, transform.rotation);
-        gamePhase.GoToNextTurn();
         Destroy(gameObject);
     }
 
-    protected void IgnorePlayerCollision()
+    protected virtual void IgnorePlayerCollision()
     {
         Collider2D playerCollider = playerThatShootThis.GetComponent<Collider2D>();
         Physics2D.IgnoreCollision(GetComponent<Collider2D>(), playerCollider);

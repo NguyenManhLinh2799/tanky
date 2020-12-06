@@ -15,10 +15,12 @@ public class GamePhase : MonoBehaviour
     // State variables
     public bool isPlayer1Turn;
     public GameObject playerThatIsInTurn;
+    public bool isWaiting = false;
 
     private void Start()
     {
         cameraController = FindObjectOfType<CameraController>();
+
         SwitchToPlayer1Turn();
     }
 
@@ -30,7 +32,7 @@ public class GamePhase : MonoBehaviour
             player2.GetComponent<Move>().isMyTurn = false;
             playerThatIsInTurn = player1;
             isPlayer1Turn = true;
-            cameraController.FollowPlayer1();
+            cameraController.Follow(player1);
         }
         catch (MissingReferenceException ignored)
         {
@@ -46,7 +48,7 @@ public class GamePhase : MonoBehaviour
             player1.GetComponent<Move>().isMyTurn = false;
             playerThatIsInTurn = player2;
             isPlayer1Turn = false;
-            cameraController.FollowPlayer2();
+            cameraController.Follow(player2);
         }
         catch (MissingReferenceException ignored)
         {
@@ -63,12 +65,17 @@ public class GamePhase : MonoBehaviour
 
     public void GoToNextTurn()
     {
+        isWaiting = true;
         StartCoroutine(WaitBeforeNextTurn());
     }
 
     IEnumerator WaitBeforeNextTurn()
     {
+        player1.GetComponent<Move>().isMyTurn = false;
+        player2.GetComponent<Move>().isMyTurn = false;
+
         yield return new WaitForSeconds(secondsBeforeNextTurn);
+
         if (isPlayer1Turn)
         {
             SwitchToPlayer2Turn();
@@ -77,5 +84,6 @@ public class GamePhase : MonoBehaviour
         {
             SwitchToPlayer1Turn();
         }
+        isWaiting = false;
     }
 }

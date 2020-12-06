@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SelfUse : MonoBehaviour
 {
+    [SerializeField] protected GameObject effectPrefab;
     protected GamePhase gamePhase;
-    protected GameObject playerThatUseThis;
+    public GameObject playerThatUseThis;
 
     // Start is called before the first frame update
     protected virtual void Start()

@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  explosionEffect: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c,
+  effectPrefab: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c,
     type: 3}

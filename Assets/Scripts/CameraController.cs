@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    GamePhase gamePhase;
     GameObject gameObjectToBeFollowed;
-
-    private void Start()
-    {
-        gamePhase = FindObjectOfType<GamePhase>();
-        FollowPlayer1();
-    }
 
     private void Update()
     {
@@ -21,14 +14,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    public void FollowPlayer1()
+    public void Follow(GameObject gameObject)
     {
-        gameObjectToBeFollowed = gamePhase.player1;
-    }
-
-    public void FollowPlayer2()
-    {
-        gameObjectToBeFollowed = gamePhase.player2;
+        gameObjectToBeFollowed = gameObject;
     }
 
     public void FollowProjectile()

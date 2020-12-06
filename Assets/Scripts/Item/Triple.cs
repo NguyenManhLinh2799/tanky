@@ -10,7 +10,7 @@ public class Triple : Projectile
 
     protected override void Start()
     {
-        damage *= 0.5f;
+        damage *= 0.6f;
 
         gamePhase = FindObjectOfType<GamePhase>();
         playerThatShootThis = gamePhase.playerThatIsInTurn;
@@ -31,26 +31,29 @@ public class Triple : Projectile
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (!isLanded)
         {
-            GameObject player = collision.gameObject;
-            player.GetComponent<Health>().ModifyHealth(-damage);
-            player.GetComponent<Health>().Hit();
+            isLanded = true;
+            if (collision.gameObject.tag == "Player")
+            {
+                GameObject player = collision.gameObject;
+                player.GetComponent<Health>().ModifyHealth(-damage);
+                player.GetComponent<Health>().Hit();
+            }
+            if (count <= 0)
+            {
+                count = MAX_COUNT;
+                gamePhase.GoToNextTurn();
+            }
+            Instantiate(effectPrefab, transform.position, transform.rotation);
         }
-        Instantiate(explosionEffect, transform.position, transform.rotation);
         Destroy(gameObject);
-
-        if (count <= 0)
-        {
-            count = MAX_COUNT;
-            gamePhase.GoToNextTurn();
-        }
     }
 
     IEnumerator ShootOnceMore()
     {
         yield return new WaitForSeconds(secondsBetweenShot);
-        Transform cannonThatShootThis = playerThatShootThis.GetComponent<Cannon>().cannon;
+        Transform cannonThatShootThis = playerThatShootThis.GetComponent<Cannon>().cannonTransform;
         Instantiate(gameObject, cannonThatShootThis.position, cannonThatShootThis.rotation);
         count--;
     }

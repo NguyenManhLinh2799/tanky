@@ -8,6 +8,7 @@ public class Disable : MonoBehaviour
     GameObject enemy;
     bool isDisabling = false;
     GameObject effect;
+    float manaStealAmount = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,24 +27,28 @@ public class Disable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDisabling && enemy.GetComponent<Move>().isMyTurn)
-        {
-            enemy.GetComponent<Inventory>().isDisabled = true;
-        }
-        else if (enemy.GetComponent<Inventory>().isDisabled && !enemy.GetComponent<Move>().isMyTurn)
-        {
-            enemy.GetComponent<Inventory>().isDisabled = false;
-            isDisabling = false;
-            Destroy(effect);
-        }
-
         try
         {
-            if (enemy.GetComponent<Health>().IsHit() && !isDisabling)
+            if (isDisabling && enemy.GetComponent<Move>().isMyTurn)
             {
-                effect = Instantiate(effectPrefab, enemy.transform.position, effectPrefab.transform.rotation);
-                effect.transform.parent = enemy.transform;
-                isDisabling = true;
+                enemy.GetComponent<Inventory>().isDisabled = true;
+            }
+            else if (enemy.GetComponent<Inventory>().isDisabled && !enemy.GetComponent<Move>().isMyTurn)
+            {
+                enemy.GetComponent<Inventory>().isDisabled = false;
+                isDisabling = false;
+                Destroy(effect);
+            }
+
+            if (enemy.GetComponent<Health>().IsHit())
+            {
+                if (!isDisabling)
+                {
+                    effect = Instantiate(effectPrefab, enemy.transform.position, effectPrefab.transform.rotation);
+                    effect.transform.parent = enemy.transform;
+                    isDisabling = true;
+                }
+                enemy.GetComponent<Inventory>().ModifyMana(-manaStealAmount);
             }
         }
         catch (MissingReferenceException ignored)

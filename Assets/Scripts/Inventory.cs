@@ -7,12 +7,10 @@ public class Inventory : MonoBehaviour
 {
     //References
     [SerializeField] float maxMana = 10f;
-    [SerializeField] float manaConsumptionAmount = 3f;
-    [SerializeField] float manaRegenerationAmount = 1f;
     [SerializeField] Image manaBarImg;
     [SerializeField] GameObject projectilePrefab;
-    [SerializeField] List<GameObject> items;
-    Transform cannon;
+    [SerializeField] List<GameObject> itemPrefabs;
+    Transform cannonTransform;
 
     // Keys
     [SerializeField] KeyCode shootKey;
@@ -21,12 +19,14 @@ public class Inventory : MonoBehaviour
     [SerializeField] KeyCode activateItem3Key;
 
     public bool isDisabled = false;
+    float manaPerItem = 3f;
+    float manaRegenAmount = 1f;
     float currentMana;
 
     // Start is called before the first frame update
     void Start()
     {
-        cannon = GetComponent<Cannon>().cannon;
+        cannonTransform = GetComponent<Cannon>().cannonTransform;
         currentMana = maxMana;
     }
 
@@ -38,28 +38,42 @@ public class Inventory : MonoBehaviour
         {
             if (Input.GetKeyDown(shootKey))
             {
-                Instantiate(projectilePrefab, cannon.position, cannon.rotation);
-                currentMana += manaRegenerationAmount;
-                if (currentMana > maxMana)
-                {
-                    currentMana = maxMana;
-                }
+                LaunchProjectile();
             }
-            else if (Input.GetKeyDown(activateItem1Key) && !isDisabled && currentMana >= manaConsumptionAmount)
+            else if (Input.GetKeyDown(activateItem1Key) && !isDisabled && currentMana >= manaPerItem)
             {
-                Instantiate(items[0], cannon.position, cannon.rotation);
-                currentMana -= manaConsumptionAmount;
+                Activate(itemPrefabs[0]);
             }
-            else if (Input.GetKeyDown(activateItem2Key) && !isDisabled && currentMana >= manaConsumptionAmount)
+            else if (Input.GetKeyDown(activateItem2Key) && !isDisabled && currentMana >= manaPerItem)
             {
-                Instantiate(items[1], cannon.position, cannon.rotation);
-                currentMana -= manaConsumptionAmount;
+                Activate(itemPrefabs[1]);
             }
-            else if (Input.GetKeyDown(activateItem3Key) && !isDisabled && currentMana >= manaConsumptionAmount)
+            else if (Input.GetKeyDown(activateItem3Key) && !isDisabled && currentMana >= manaPerItem)
             {
-                Instantiate(items[2], cannon.position, cannon.rotation);
-                currentMana -= manaConsumptionAmount;
+                Activate(itemPrefabs[2]);
             }
         }
+    }
+
+    private void LaunchProjectile()
+    {
+        Instantiate(projectilePrefab, cannonTransform.position, cannonTransform.rotation);
+        currentMana += manaRegenAmount;
+        if (currentMana > maxMana)
+        {
+            currentMana = maxMana;
+        }
+    }
+
+    private void Activate(GameObject itemPrefab)
+    {
+        Instantiate(itemPrefab, cannonTransform.position, itemPrefab.transform.rotation);
+        ModifyMana(-manaPerItem);
+    }
+
+    public void ModifyMana(float deltaMana)
+    {
+        currentMana += deltaMana;
+        currentMana = Mathf.Clamp(currentMana, 0f, maxMana);
     }
 }

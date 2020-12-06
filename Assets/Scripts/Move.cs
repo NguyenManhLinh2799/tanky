@@ -7,14 +7,14 @@ public class Move : MonoBehaviour
 {
     [SerializeField] KeyCode moveLeftKey;
     [SerializeField] KeyCode moveRightKey;
-    [SerializeField] float speed = 10f;
+    public float speed = 10f;
     [SerializeField] float maxGasoline = 100f;
     [SerializeField] float currentGasoline;
-    [SerializeField] protected float gasolineConsumptionRates = 3f;
+    public float gasolineConsumptionRates = 3f;
     [SerializeField] Image gasolineBarImg;
 
     public bool isMyTurn;
-
+    public bool isDisabled = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,8 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isMyTurn)
+        gasolineBarImg.fillAmount = currentGasoline / maxGasoline;
+        if (isMyTurn && !isDisabled)
         {
             float deltaX;
             if (Input.GetKey(moveLeftKey) && currentGasoline > 0)
@@ -43,7 +44,12 @@ public class Move : MonoBehaviour
             transform.position = new Vector2(transform.position.x + deltaX, transform.position.y);
 
             currentGasoline -= gasolineConsumptionRates * Mathf.Abs(deltaX);
-            gasolineBarImg.fillAmount = currentGasoline / maxGasoline;
         }
+    }
+
+    public void ModifyGasoline(float deltaGasoline)
+    {
+        currentGasoline += deltaGasoline;
+        currentGasoline = Mathf.Clamp(currentGasoline, 0f, maxGasoline);
     }
 }

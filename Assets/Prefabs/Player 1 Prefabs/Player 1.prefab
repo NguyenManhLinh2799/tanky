@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ae7de3e2bd0544cb6bd316e629b5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannon: {fileID: 1737895031103464186}
+  cannonTransform: {fileID: 1737895031103464186}
   rotateClockwiseKey: 115
   rotateCounterclockwiseKey: 119
   increasePowerKey: 101
@@ -216,9 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa1d62ee054c6d4491ba3a80b750a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMana: 10
+  manaBarImg: {fileID: 0}
   projectilePrefab: {fileID: 8157590894723528534, guid: 12fa6ec8a5196ca468eaf1e612b569e5,
     type: 3}
-  items: []
+  itemPrefabs: []
   shootKey: 32
   activateItem1Key: 49
   activateItem2Key: 50

@@ -251,7 +251,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fba96e9e6910c5a4abd12beb1427049d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df6ce4e450b0b24cb8f5ab8dcde8ae6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fba96e9e6910c5a4abd12beb1427049d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df6ce4e450b0b24cb8f5ab8dcde8ae6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2031,7 +2031,7 @@ GameObject:
   - component: {fileID: 770824598}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2183,7 +2183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fba96e9e6910c5a4abd12beb1427049d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df6ce4e450b0b24cb8f5ab8dcde8ae6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3182,7 +3182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fba96e9e6910c5a4abd12beb1427049d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df6ce4e450b0b24cb8f5ab8dcde8ae6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3933,7 +3933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fba96e9e6910c5a4abd12beb1427049d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df6ce4e450b0b24cb8f5ab8dcde8ae6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4112,7 +4112,7 @@ GameObject:
   - component: {fileID: 1931633820}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4363,6 +4363,7 @@ MonoBehaviour:
   secondsBeforeNextTurn: 2
   isPlayer1Turn: 1
   playerThatIsInTurn: {fileID: 0}
+  isWaiting: 0
 --- !u!1 &1976530118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,7 +4665,7 @@ PrefabInstance:
         type: 3}
       propertyPath: passivePrefab
       value: 
-      objectReference: {fileID: 4676703856125467101, guid: 88547d65ec452444586c2a6dd4d012ae,
+      objectReference: {fileID: 4676703856125467101, guid: 5a2da34428f22d04da18d1960bc0f54d,
         type: 3}
     - target: {fileID: 4200272287392922146, guid: f11fb2b7df7836c4f9387bddd72c9a62,
         type: 3}
@@ -4692,6 +4693,11 @@ PrefabInstance:
     - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
         type: 3}
       propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: itemPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
@@ -4717,6 +4723,24 @@ PrefabInstance:
       propertyPath: manaBarImg
       value: 
       objectReference: {fileID: 768646673}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5135009101427097289, guid: b0918d9ea448f4d4fbcfed1e4956168b,
+        type: 3}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: itemPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: 42e60ae85ff493a4b848a686c5fd4042,
+        type: 3}
+    - target: {fileID: 6702360141370032608, guid: f11fb2b7df7836c4f9387bddd72c9a62,
+        type: 3}
+      propertyPath: itemPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: 0925711ea18d26d4d974f2cc17ed715d,
+        type: 3}
     - target: {fileID: 6979965232449018337, guid: f11fb2b7df7836c4f9387bddd72c9a62,
         type: 3}
       propertyPath: powerSlider
@@ -4740,7 +4764,7 @@ PrefabInstance:
         type: 3}
       propertyPath: passivePrefab
       value: 
-      objectReference: {fileID: 4676703856125467101, guid: d60464c947fd4be459cc4fc7c2489700,
+      objectReference: {fileID: 4676703856125467101, guid: 5a2da34428f22d04da18d1960bc0f54d,
         type: 3}
     - target: {fileID: 282919547712452086, guid: bee84b8850144e145b0540a935b6a4da,
         type: 3}
@@ -4750,6 +4774,11 @@ PrefabInstance:
     - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
         type: 3}
       propertyPath: items.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: itemPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
@@ -4775,6 +4804,24 @@ PrefabInstance:
       propertyPath: manaBarImg
       value: 
       objectReference: {fileID: 33765130}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4490406121046104159, guid: 65d77ad5d6988df48bd5567ce1735692,
+        type: 3}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: itemPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: abbe7a6ac2cce4749ac6375f894653a3,
+        type: 3}
+    - target: {fileID: 1598392961671648312, guid: bee84b8850144e145b0540a935b6a4da,
+        type: 3}
+      propertyPath: itemPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8157590894723528534, guid: f5abbcca9f272f940a97cc1c5076ffd0,
+        type: 3}
     - target: {fileID: 2349750144351565550, guid: bee84b8850144e145b0540a935b6a4da,
         type: 3}
       propertyPath: m_Name
@@ -4909,7 +4956,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fba96e9e6910c5a4abd12beb1427049d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7df6ce4e450b0b24cb8f5ab8dcde8ae6, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
