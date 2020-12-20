@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c4e46cc1883df40bc5ce92f15badca, type: 3}
+  m_Name: Shield
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 5135009101427097289, guid: b0918d9ea448f4d4fbcfed1e4956168b,
+    type: 3}
+  itemName: Shield
+  description: "Khi\xEAn ch\u1ED1ng \u0111\u1EA1n: D\u1EF1ng m\u1ED9t t\u1EA5m khi\xEAn
+    c\xF3 th\u1EC3 ch\u1ECBu \u0111\u01B0\u1EE3c 3 ph\xE1t \u0111\u1EA1n ngay tr\u01B0\u1EDBc
+    m\u1EB7t, k\xEDch ho\u1EA1t l\u1EA7n n\u1EEFa s\u1EBD x\xF3a khi\xEAn c\u0169
+    thay b\u1EB1ng khi\xEAn m\u1EDBi."

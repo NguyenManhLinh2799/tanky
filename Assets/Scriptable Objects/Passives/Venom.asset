@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85e88719666ce94fa143e1c07836859, type: 3}
+  m_Name: Venom
+  m_EditorClassIdentifier: 
+  passivePrefab: {fileID: 4676703856125467101, guid: 88547d65ec452444586c2a6dd4d012ae,
+    type: 3}
+  passiveName: Venom
+  description: "H\u1ED5 mang ch\xFAa: M\u1ED7i ph\xE1t b\u1EAFn tr\xFAng s\u1EBD
+    khi\u1EBFn k\u1EBB \u0111\u1ECBch b\u1ECB tr\xFAng \u0111\u1ED9c, m\u1EA5t m\xE1u
+    trong v\xE0i gi\xE2y."

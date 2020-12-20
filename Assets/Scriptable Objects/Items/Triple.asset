@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c4e46cc1883df40bc5ce92f15badca, type: 3}
+  m_Name: Triple
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 8157590894723528534, guid: f5abbcca9f272f940a97cc1c5076ffd0,
+    type: 3}
+  itemName: Triple
+  description: "S\xFAng li\xEAn thanh: B\u1EAFn li\xEAn ti\u1EBFp 3 ph\xE1t \u0111\u1EA1n
+    trong m\u1ED9t l\u01B0\u1EE3t, s\xE1t th\u01B0\u01A1ng m\u1ED7i ph\xE1t b\u1EAFn
+    s\u1EBD gi\u1EA3m nh\u01B0ng v\u1EABn c\u1ED9ng d\u1ED3n n\u1ED9i t\u1EA1i n\u1EBFu
+    c\xF3."

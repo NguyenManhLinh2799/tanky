@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Heal : SelfUse
 {
-    float healAmount = 30f;
+    float healAmount = 20f;
 
     protected override void Start()
     {

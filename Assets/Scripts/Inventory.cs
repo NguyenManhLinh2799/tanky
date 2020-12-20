@@ -9,7 +9,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] float maxMana = 10f;
     [SerializeField] Image manaBarImg;
     [SerializeField] GameObject projectilePrefab;
-    [SerializeField] List<GameObject> itemPrefabs;
+    public List<GameObject> itemPrefabs;
     Transform cannonTransform;
 
     // Keys

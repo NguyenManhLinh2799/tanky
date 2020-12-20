@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85e88719666ce94fa143e1c07836859, type: 3}
+  m_Name: Disable
+  m_EditorClassIdentifier: 
+  passivePrefab: {fileID: 4676703856125467101, guid: d60464c947fd4be459cc4fc7c2489700,
+    type: 3}
+  passiveName: Disable
+  description: "V\xF4 hi\u1EC7u h\xF3a: M\u1ED7i ph\xE1t b\u1EAFn tr\xFAng s\u1EBD
+    khi\u1EBFn k\u1EBB \u0111\u1ECBch kh\xF4ng th\u1EC3 s\u1EED d\u1EE5ng trang b\u1ECB
+    trong l\u01B0\u1EE3t k\u1EBF ti\u1EBFp \u0111\u1ED3ng th\u1EDDi \u0111\xE1nh
+    c\u1EAFp m\u1ED9t l\u01B0\u1EE3ng mana."

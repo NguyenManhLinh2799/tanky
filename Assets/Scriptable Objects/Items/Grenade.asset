@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c4e46cc1883df40bc5ce92f15badca, type: 3}
+  m_Name: Grenade
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 8157590894723528534, guid: 42e60ae85ff493a4b848a686c5fd4042,
+    type: 3}
+  itemName: Grenade
+  description: "L\u1EF1u \u0111\u1EA1n: N\xE9m m\u1ED9t tr\xE1i l\u1EF1u \u0111\u1EA1n,
+    khi ti\u1EBFp \u0111\u1EA5t s\u1EBD ph\xE1t n\u1ED5 sau v\xE0i gi\xE2y."

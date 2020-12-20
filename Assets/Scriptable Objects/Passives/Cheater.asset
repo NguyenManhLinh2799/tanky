@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85e88719666ce94fa143e1c07836859, type: 3}
+  m_Name: Cheater
+  m_EditorClassIdentifier: 
+  passivePrefab: {fileID: 4676703856125467101, guid: 16fa2f9c33bfb954b958c31d549250f1,
+    type: 3}
+  passiveName: Cheater
+  description: "Gian l\u1EADn: C\xF3 20% c\u01A1 h\u1ED9i ng\u01B0\u1EDDi ch\u01A1i
+    s\u1EBD \u0111\u01B0\u1EE3c b\u1EAFn th\xEAm m\u1ED9t l\u01B0\u1EE3t n\u1EEFa."

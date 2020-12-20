@@ -5,44 +5,14 @@ using UnityEngine;
 
 public class GameSelection : MonoBehaviour
 {
-    public enum GameMode
-    {
-        PvP,
-        VsAI
-    }
+    public Passive[] passives;
+    public Item[] items;
 
-    public enum TankType
-    {
-        Ignition,
-        Disable,
-        Unstoppable,
-        NoMercy,
-        Bloodthirst,
-        GhostRider,
-        Excited,
-        Cheater
-    }
+    public string player1PassiveName;
+    public string player2PassiveName;
 
-    public enum Item
-    {
-        Triple,
-        C4,
-        BigBoy,
-        Signal,
-        GasBomb,
-        Venom,
-        SuperGlue,
-        Potion,
-        Gasoline,
-        Shield,
-        Invisible
-    }
-
-    public GameMode gameMode;
-    public TankType player1Type;
-    public TankType player2Type;
-    public List<Item> player1Items;
-    public List<Item> player2Items;
+    public List<string> player1ItemNames;
+    public List<string> player2ItemNames;
 
     void Awake()
     {
@@ -53,49 +23,68 @@ public class GameSelection : MonoBehaviour
         else
         {
             DontDestroyOnLoad(gameObject);
-            player1Items = new List<Item>();
-            player2Items = new List<Item>();
         }
     }
 
-    public void SetGameMode(string mode)
+    public void SetPlayer1Passive(string passive)
     {
-        FindObjectOfType<GameSelection>().gameMode = StringToGameMode(mode);
+        FindObjectOfType<GameSelection>().player1PassiveName = passive;
     }
 
-    public void SetPlayer1Type(string type)
+    public void SetPlayer2Passive(string passive)
     {
-        FindObjectOfType<GameSelection>().player1Type = StringToTankType(type);
-    }
-
-    public void SetPlayer2Type(string type)
-    {
-        FindObjectOfType<GameSelection>().player2Type = StringToTankType(type);
+        FindObjectOfType<GameSelection>().player2PassiveName = passive;
     }
 
     public void AddPlayer1Item(string item)
     {
-        FindObjectOfType<GameSelection>().player1Items.Add(StringToItem(item));
+        GameSelection gameSelection = FindObjectOfType<GameSelection>();
+
+        if (gameSelection.player1ItemNames.Contains(item))
+        {
+            gameSelection.player1ItemNames.Remove(item);
+            return;
+        }
+
+
+        gameSelection.player1ItemNames.Add(item);
     }
 
     public void AddPlayer2Item(string item)
     {
-        FindObjectOfType<GameSelection>().player2Items.Add(StringToItem(item));
+        GameSelection gameSelection = FindObjectOfType<GameSelection>();
+
+        if (gameSelection.player2ItemNames.Contains(item))
+        {
+            gameSelection.player2ItemNames.Remove(item);
+            return;
+        }
+
+
+        gameSelection.player2ItemNames.Add(item);
     }
 
-    // Parse string
-    public GameMode StringToGameMode(string mode)
+    public Passive FindPassiveByName(string name)
     {
-        return (GameMode)Enum.Parse(typeof(GameMode), mode);
+        foreach (Passive passive in passives)
+        {
+            if (passive.passiveName == name)
+            {
+                return passive;
+            }
+        }
+        return null;
     }
 
-    public TankType StringToTankType(string type)
+    public Item FindItemByName(string name)
     {
-        return (TankType) Enum.Parse(typeof(TankType), type);
-    }
-
-    public Item StringToItem(string item)
-    {
-        return (Item)Enum.Parse(typeof(Item), item);
+        foreach (Item item in items)
+        {
+            if (item.itemName == name)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 }

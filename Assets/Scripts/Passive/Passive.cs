@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Passive : MonoBehaviour
+[CreateAssetMenu(menuName = "Passive")]
+public class Passive : ScriptableObject
 {
-    [SerializeField] GameObject passivePrefab;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        GameObject passive = Instantiate(passivePrefab, transform.position, Quaternion.identity);
-        passive.transform.parent = transform;
-    }
+    public GameObject passivePrefab;
+    public string passiveName;
+    [TextArea(15, 15)] public string description;
 }

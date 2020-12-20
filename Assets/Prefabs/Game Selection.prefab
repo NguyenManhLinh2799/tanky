@@ -43,5 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f36d5cd773db744d90007c9068ffc56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Type: 0
-  player1Items: 
+  passives:
+  - {fileID: 11400000, guid: bf6aeae8e971f6447bf99d26b22dee4e, type: 2}
+  - {fileID: 11400000, guid: cfbd0db4403b57a478b79c41e5c1890d, type: 2}
+  - {fileID: 11400000, guid: 8e4f686400f55bb41a65658ab450d181, type: 2}
+  - {fileID: 11400000, guid: b860528f51a991e47ae5f897d6126907, type: 2}
+  - {fileID: 11400000, guid: 868e114685a0bf846865b5626081fca4, type: 2}
+  - {fileID: 11400000, guid: 12d87e108c543bd469fb25dea44c59d8, type: 2}
+  items:
+  - {fileID: 11400000, guid: 76116a0b49110394194e68e06a6f2527, type: 2}
+  - {fileID: 11400000, guid: d80264529223670448f1bff4b2c0c602, type: 2}
+  - {fileID: 11400000, guid: 3284915c72de6d644b96247139f25fbd, type: 2}
+  - {fileID: 11400000, guid: 7bdd63b1c1253804595165609340b4b1, type: 2}
+  - {fileID: 11400000, guid: e5a0d8e2616307745a83257575d37104, type: 2}
+  - {fileID: 11400000, guid: 64a3f8ad5f7f1e3419d02a7a4ceb6ab3, type: 2}
+  - {fileID: 11400000, guid: bd66a651fd85eea4fbfc7e5d3b905a05, type: 2}
+  - {fileID: 11400000, guid: f3669cd45b2301d428fc0a9b5f3d2095, type: 2}
+  - {fileID: 11400000, guid: 488fc152868a0c5459f7d72cd75f2658, type: 2}
+  player1Passive: 
+  player2Passive: 
+  player1Items: []
+  player2Items: []
