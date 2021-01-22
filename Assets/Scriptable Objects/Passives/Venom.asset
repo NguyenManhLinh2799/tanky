@@ -15,6 +15,9 @@ MonoBehaviour:
   passivePrefab: {fileID: 4676703856125467101, guid: 88547d65ec452444586c2a6dd4d012ae,
     type: 3}
   passiveName: Venom
+  R: 0.5
+  G: 0.5
+  B: 0.5
   description: "H\u1ED5 mang ch\xFAa: M\u1ED7i ph\xE1t b\u1EAFn tr\xFAng s\u1EBD
     khi\u1EBFn k\u1EBB \u0111\u1ECBch b\u1ECB tr\xFAng \u0111\u1ED9c, m\u1EA5t m\xE1u
     trong v\xE0i gi\xE2y."

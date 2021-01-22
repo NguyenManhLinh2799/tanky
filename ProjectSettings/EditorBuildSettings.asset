@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 476815127d68d9645a978fa332db813e
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: e6d29a17200490c4196c1cd0f33006ac
+  - enabled: 1
+    path: Assets/Scenes/Choosing Map.unity
+    guid: 378c6679d613f9d4c9d867cd800a3d85
+  - enabled: 1
     path: Assets/Scenes/Player 1 Choosing Tank.unity
     guid: 1f358a8398dfb0e43afacfa394e15aae
   - enabled: 1

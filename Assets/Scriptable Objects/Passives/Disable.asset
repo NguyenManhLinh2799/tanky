@@ -15,6 +15,9 @@ MonoBehaviour:
   passivePrefab: {fileID: 4676703856125467101, guid: d60464c947fd4be459cc4fc7c2489700,
     type: 3}
   passiveName: Disable
+  R: 0
+  G: 0.6381342
+  B: 1
   description: "V\xF4 hi\u1EC7u h\xF3a: M\u1ED7i ph\xE1t b\u1EAFn tr\xFAng s\u1EBD
     khi\u1EBFn k\u1EBB \u0111\u1ECBch kh\xF4ng th\u1EC3 s\u1EED d\u1EE5ng trang b\u1ECB
     trong l\u01B0\u1EE3t k\u1EBF ti\u1EBFp \u0111\u1ED3ng th\u1EDDi \u0111\xE1nh

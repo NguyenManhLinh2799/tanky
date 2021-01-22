@@ -19,9 +19,9 @@ public class Grenade : Projectile
             }
             Destroy(gameObject);
         }
-        
         else
         {
+            isLanded = true;
             StartCoroutine(WaitThenBlow());
         }
     }
@@ -29,6 +29,11 @@ public class Grenade : Projectile
     IEnumerator WaitThenBlow()
     {
         yield return new WaitForSeconds(secondsBeforeBlowing);
+
+        if (impactSound != null)
+        {
+            AudioSource.PlayClipAtPoint(impactSound, transform.position);
+        }
 
         GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
         effect.transform.localScale = new Vector3(4f, 4f, 0f);

@@ -6,60 +6,112 @@ using UnityEngine.UI;
 public class Cannon : MonoBehaviour
 {
     // Config params
-    float rotationSpeed = 100f;
-    float maxAngle = 180f;
+    float rotationSpeed = 15f;
+    float maxAngle = 75f;
     float minAngle = 0f;
     float powerAdjustSpeed = 10f;
-    public Transform cannonTransform;
-    [SerializeField] KeyCode rotateClockwiseKey;
-    [SerializeField] KeyCode rotateCounterclockwiseKey;
+    
+    [SerializeField] KeyCode increaseAngleKey;
+    [SerializeField] KeyCode decreaseAngleKey;
     [SerializeField] KeyCode increasePowerKey;
     [SerializeField] KeyCode decreasePowerKey;
 
     // References
-    [SerializeField] GameObject powerSlider;
+    [SerializeField] GameObject shootVFX;
+    public Transform cannonTransform;
+    public Transform barrelTransform;
+    public Slider powerSlider;
+    AudioSource rotateSound;
 
     public bool isDisabled = false;
+    public bool isLeftDirection;
+
+    private void Start()
+    {
+        rotateSound = cannonTransform.GetComponent<AudioSource>();
+    }
 
     void Update()
     {
         if (!isDisabled)
         {
-            Rotate();
+            AdjustAngle();
         }
         AdjustPower();
+    }
+
+    public void PlayShootEffect()
+    {
+        Instantiate(shootVFX, barrelTransform.position, Quaternion.identity);
     }
 
     private void AdjustPower()
     {
         if (Input.GetKey(increasePowerKey))
         {
-            powerSlider.GetComponent<Slider>().value += powerAdjustSpeed * Time.deltaTime;
+            if (!rotateSound.isPlaying)
+            {
+                rotateSound.Play();
+            }
+            powerSlider.value += powerAdjustSpeed * Time.deltaTime;
         }
         else if (Input.GetKey(decreasePowerKey))
         {
-            powerSlider.GetComponent<Slider>().value -= powerAdjustSpeed * Time.deltaTime;
+            if (!rotateSound.isPlaying)
+            {
+                rotateSound.Play();
+            }
+            powerSlider.value -= powerAdjustSpeed * Time.deltaTime;
+        }
+        else if (Input.GetKeyUp(increasePowerKey) || Input.GetKeyUp(decreasePowerKey))
+        {
+            rotateSound.Stop();
         }
     }
 
-    private void Rotate()
+    private void AdjustAngle()
     {
-        float nextRotationZ = cannonTransform.localEulerAngles.z;
-        if (Input.GetKey(rotateCounterclockwiseKey))
+        float nextAngle = cannonTransform.localEulerAngles.z;
+        if (Input.GetKey(increaseAngleKey))
         {
-            nextRotationZ = Mathf.Clamp(cannonTransform.localEulerAngles.z + rotationSpeed * Time.deltaTime, minAngle, maxAngle);
+            if (!rotateSound.isPlaying)
+            {
+                rotateSound.Play();
+            }
+            nextAngle = Mathf.Clamp(cannonTransform.localEulerAngles.z + rotationSpeed * Time.deltaTime, minAngle, maxAngle);
         }
-        else if (Input.GetKey(rotateClockwiseKey))
+        else if (Input.GetKey(decreaseAngleKey))
         {
-            nextRotationZ = Mathf.Clamp(cannonTransform.localEulerAngles.z - rotationSpeed * Time.deltaTime, minAngle, maxAngle);
+            if (!rotateSound.isPlaying)
+            {
+                rotateSound.Play();
+            }
+            nextAngle = Mathf.Clamp(cannonTransform.localEulerAngles.z - rotationSpeed * Time.deltaTime, minAngle, maxAngle);
         }
-        cannonTransform.localEulerAngles = new Vector3(0f, 0f, nextRotationZ);
+        else if (Input.GetKeyUp(increaseAngleKey) || Input.GetKeyUp(decreaseAngleKey))
+        {
+            rotateSound.Stop();
+        }
+
+        if (nextAngle > maxAngle - 1)
+        {
+            nextAngle -= 5;
+            isLeftDirection = !isLeftDirection;
+            transform.Rotate(0f, 180f, 0f);
+        }
+
+        cannonTransform.localEulerAngles = new Vector3(0f, 0f, nextAngle);
     }
 
-    public Vector2 GetInitialVelocity()
+    public virtual Vector2 GetInitialVelocity()
     {
-        float power = powerSlider.GetComponent<Slider>().value;
-        float angleRadian = cannonTransform.localEulerAngles.z * Mathf.Deg2Rad;
+        float power = powerSlider.value;
+        float angleDegree = cannonTransform.localEulerAngles.z;
+        if (isLeftDirection)
+        {
+            angleDegree = 180 - angleDegree;
+        }
+        float angleRadian = angleDegree * Mathf.Deg2Rad;
         return new Vector2(power * Mathf.Cos(angleRadian), power * Mathf.Sin(angleRadian));
     }
 }

@@ -15,5 +15,8 @@ MonoBehaviour:
   passivePrefab: {fileID: 4676703856125467101, guid: 9db7e4afaac23c64fabe1340fc26a275,
     type: 3}
   passiveName: Ghost Rider
-  description: "Ma t\u1ED1c \u0111\u1ED9\": Di chuy\u1EC3n nhanh h\u01A1n, ti\xEAu
+  R: 1
+  G: 0.4636076
+  B: 0
+  description: "Ma t\u1ED1c \u0111\u1ED9: Di chuy\u1EC3n nhanh h\u01A1n, ti\xEAu
     th\u1EE5 \xEDt x\u0103ng h\u01A1n."

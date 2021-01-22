@@ -15,4 +15,5 @@ MonoBehaviour:
   itemPrefab: {fileID: 4490406121046104159, guid: 5ca94477de41bb442b1538bb16b672b5,
     type: 3}
   itemName: Gasoline
+  icon: {fileID: 21300000, guid: 9380b7d008837b94e9220f0e77f36f82, type: 3}
   description: "B\xECnh x\u0103ng: H\u1ED3i l\u1EA1i m\u1ED9t l\u01B0\u1EE3ng x\u0103ng."

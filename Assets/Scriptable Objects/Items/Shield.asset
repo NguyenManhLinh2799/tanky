@@ -15,6 +15,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 5135009101427097289, guid: b0918d9ea448f4d4fbcfed1e4956168b,
     type: 3}
   itemName: Shield
+  icon: {fileID: 21300000, guid: 6c27b6e180bb01b44810169011ab3c7f, type: 3}
   description: "Khi\xEAn ch\u1ED1ng \u0111\u1EA1n: D\u1EF1ng m\u1ED9t t\u1EA5m khi\xEAn
     c\xF3 th\u1EC3 ch\u1ECBu \u0111\u01B0\u1EE3c 3 ph\xE1t \u0111\u1EA1n ngay tr\u01B0\u1EDBc
     m\u1EB7t, k\xEDch ho\u1EA1t l\u1EA7n n\u1EEFa s\u1EBD x\xF3a khi\xEAn c\u0169

@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     //References
-    [SerializeField] float maxMana = 10f;
-    [SerializeField] Image manaBarImg;
-    [SerializeField] GameObject projectilePrefab;
+    [SerializeField] protected float maxMana = 10f;
+    public Image manaBarImg;
+    [SerializeField] protected GameObject projectilePrefab;
     public List<GameObject> itemPrefabs;
     Transform cannonTransform;
+    Transform barrelTransform;
 
     // Keys
     [SerializeField] KeyCode shootKey;
@@ -19,19 +20,20 @@ public class Inventory : MonoBehaviour
     [SerializeField] KeyCode activateItem3Key;
 
     public bool isDisabled = false;
-    float manaPerItem = 3f;
+    protected float manaPerItem = 3f;
     float manaRegenAmount = 1f;
-    float currentMana;
+    protected float currentMana;
 
     // Start is called before the first frame update
     void Start()
     {
         cannonTransform = GetComponent<Cannon>().cannonTransform;
+        barrelTransform = GetComponent<Cannon>().barrelTransform;
         currentMana = maxMana;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         manaBarImg.fillAmount = currentMana / maxMana;
         if (GetComponent<Move>().isMyTurn)
@@ -55,7 +57,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void LaunchProjectile()
+    protected void LaunchProjectile()
     {
         Instantiate(projectilePrefab, cannonTransform.position, cannonTransform.rotation);
         currentMana += manaRegenAmount;
@@ -65,7 +67,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void Activate(GameObject itemPrefab)
+    protected void Activate(GameObject itemPrefab)
     {
         Instantiate(itemPrefab, cannonTransform.position, itemPrefab.transform.rotation);
         ModifyMana(-manaPerItem);

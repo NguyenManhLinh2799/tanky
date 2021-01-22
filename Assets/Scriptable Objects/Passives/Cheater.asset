@@ -15,5 +15,8 @@ MonoBehaviour:
   passivePrefab: {fileID: 4676703856125467101, guid: 16fa2f9c33bfb954b958c31d549250f1,
     type: 3}
   passiveName: Cheater
+  R: 0
+  G: 1
+  B: 0.3831062
   description: "Gian l\u1EADn: C\xF3 20% c\u01A1 h\u1ED9i ng\u01B0\u1EDDi ch\u01A1i
     s\u1EBD \u0111\u01B0\u1EE3c b\u1EAFn th\xEAm m\u1ED9t l\u01B0\u1EE3t n\u1EEFa."

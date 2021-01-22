@@ -5,8 +5,13 @@ using UnityEngine;
 
 public class GameSelection : MonoBehaviour
 {
+    public Map[] maps;
     public Passive[] passives;
     public Item[] items;
+
+    public string gameMode;
+
+    public string map;
 
     public string player1PassiveName;
     public string player2PassiveName;
@@ -16,7 +21,8 @@ public class GameSelection : MonoBehaviour
 
     void Awake()
     {
-        if (FindObjectsOfType<GameSelection>().Length > 1)
+        var instances = FindObjectsOfType<GameSelection>();
+        if (instances.Length > 1)
         {
             Destroy(gameObject);
         }
@@ -24,6 +30,26 @@ public class GameSelection : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public void ResetGame()
+    {
+        gameMode = "";
+        map = "";
+        player1PassiveName = "";
+        player2PassiveName = "";
+        player1ItemNames.Clear();
+        player2ItemNames.Clear();
+    }
+
+    public void SetGameMode(string gameMode)
+    {
+        FindObjectOfType<GameSelection>().gameMode = gameMode;
+    }
+
+    public void SetMap(string map)
+    {
+        FindObjectOfType<GameSelection>().map = map;
     }
 
     public void SetPlayer1Passive(string passive)
@@ -62,6 +88,18 @@ public class GameSelection : MonoBehaviour
 
 
         gameSelection.player2ItemNames.Add(item);
+    }
+
+    public Map FindMapByName(string name)
+    {
+        foreach (var map in maps)
+        {
+            if (map.mapName == name)
+            {
+                return map;
+            }
+        }
+        return null;
     }
 
     public Passive FindPassiveByName(string name)

@@ -15,6 +15,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 8157590894723528534, guid: abbe7a6ac2cce4749ac6375f894653a3,
     type: 3}
   itemName: Super Glue
+  icon: {fileID: 21300000, guid: 86755b0769646dd4ba9c1e19dc2d43bc, type: 3}
   description: "Keo 502: Khi b\u1EAFn tr\xFAng \u0111\xEDch s\u1EBD ph\u1EE7 m\u1ED9t
     l\u1EDBp keo si\xEAu d\xEDnh khi\u1EBFn k\u1EBB \u0111\u1ECBch kh\xF4ng th\u1EC3
     di chuy\u1EC3n v\xE0 \u0111i\u1EC1u ch\u1EC9nh g\xF3c b\u1EAFn trong l\u01B0\u1EE3t

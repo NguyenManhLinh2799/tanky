@@ -15,6 +15,8 @@ public class Triple : Projectile
         gamePhase = FindObjectOfType<GamePhase>();
         playerThatShootThis = gamePhase.playerThatIsInTurn;
 
+        audioSource = GetComponent<AudioSource>();
+
         IgnorePlayerCollision();
         SetInitialVelocity();
 
@@ -27,10 +29,17 @@ public class Triple : Projectile
         {
             StartCoroutine(ShootOnceMore());
         }
+
+        PlayShootEffect();
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        if (impactSound != null)
+        {
+            AudioSource.PlayClipAtPoint(impactSound, transform.position);
+        }
+
         if (!isLanded)
         {
             isLanded = true;

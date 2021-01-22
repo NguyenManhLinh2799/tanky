@@ -12,34 +12,58 @@ public class SceneLoader : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void LoadChoosingMap()
+    {
+        StartCoroutine(PlayClickSoundThenLoad("Choosing Map"));
+    }
+
+    public void LoadTutorial()
+    {
+        StartCoroutine(PlayClickSoundThenLoad("Tutorial"));
+    }
+    public void LoadMainMenu()
+    {
+        FindObjectOfType<GameSelection>().ResetGame();
+        StartCoroutine(PlayClickSoundThenLoad("Main Menu"));
+    }
     public void LoadPlayer1ChoosingTank()
     {
-        audioSource.Play();
-
-        SceneManager.LoadScene("Player 1 Choosing Tank");
+        StartCoroutine(PlayClickSoundThenLoad("Player 1 Choosing Tank"));
     }
 
     public void LoadPlayer2ChoosingTank()
     {
-        audioSource.Play();
-        SceneManager.LoadScene("Player 2 Choosing Tank");
+        StartCoroutine(PlayClickSoundThenLoad("Player 2 Choosing Tank"));
     }
 
     public void LoadPlayer1ChoosingItems()
     {
-        audioSource.Play();
-        SceneManager.LoadScene("Player 1 Choosing Items");
+        StartCoroutine(PlayClickSoundThenLoad("Player 1 Choosing Items"));
     }
 
     public void LoadPlayer2ChoosingItems()
     {
-        audioSource.Play();
-        SceneManager.LoadScene("Player 2 Choosing Items");
+        StartCoroutine(PlayClickSoundThenLoad("Player 2 Choosing Items"));
     }
 
-    public void LoadMainScene()
+    public void LoadMainGame()
     {
-        audioSource.Play();
-        SceneManager.LoadScene("Main Game");
+        StartCoroutine(PlayClickSoundThenLoad("Main Game"));
+    }
+
+    IEnumerator PlayClickSoundThenLoad(string scene)
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        yield return new WaitForSeconds(0.5f);
+        audioSource.Stop();
+        SceneManager.LoadScene(scene);
     }
 }

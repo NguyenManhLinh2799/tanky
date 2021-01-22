@@ -7,11 +7,12 @@ public class ToggleEventHandler : MonoBehaviour
 {
     [SerializeField] Toggle[] itemToggles;
     [SerializeField] int maxItems = 3;
+    [SerializeField] Button continueBtn;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        continueBtn.interactable = false;
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class ToggleEventHandler : MonoBehaviour
 
         if (count >= maxItems)
         {
+            continueBtn.interactable = true;
             foreach (Toggle toggle in itemToggles)
             {
                 if (!toggle.isOn)
@@ -43,6 +45,7 @@ public class ToggleEventHandler : MonoBehaviour
         }
         else
         {
+            continueBtn.interactable = false;
             foreach (Toggle toggle in itemToggles)
             {
                 toggle.interactable = true;

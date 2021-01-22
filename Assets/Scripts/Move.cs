@@ -8,39 +8,53 @@ public class Move : MonoBehaviour
     [SerializeField] KeyCode moveLeftKey;
     [SerializeField] KeyCode moveRightKey;
     public float speed = 10f;
-    [SerializeField] float maxGasoline = 100f;
-    [SerializeField] float currentGasoline;
+    [SerializeField] protected float maxGasoline = 100f;
+    [SerializeField] protected float currentGasoline;
     public float gasolineConsumptionRates = 3f;
-    [SerializeField] Image gasolineBarImg;
+    public Image gasolineBarImg;
 
     public bool isMyTurn;
     public bool isDisabled = false;
 
+    protected AudioSource moveSound;
+
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         currentGasoline = maxGasoline;
+        moveSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         gasolineBarImg.fillAmount = currentGasoline / maxGasoline;
         if (isMyTurn && !isDisabled)
         {
-            float deltaX;
+            float deltaX = 0f;
             if (Input.GetKey(moveLeftKey) && currentGasoline > 0)
             {
+                if (!moveSound.isPlaying)
+                {
+                    moveSound.Play();
+                }
+                
                 deltaX = -1 * speed * Time.deltaTime;
             }
             else if (Input.GetKey(moveRightKey) && currentGasoline > 0)
             {
+                if (!moveSound.isPlaying)
+                {
+                    moveSound.Play();
+                }
+
                 deltaX = speed * Time.deltaTime;
             }
-            else
+            else if (Input.GetKeyUp(moveLeftKey) || Input.GetKeyUp(moveRightKey))
             {
-                deltaX = 0f;
+                moveSound.Stop();
             }
+
             transform.position = new Vector2(transform.position.x + deltaX, transform.position.y);
 
             currentGasoline -= gasolineConsumptionRates * Mathf.Abs(deltaX);

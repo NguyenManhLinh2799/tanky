@@ -15,5 +15,6 @@ MonoBehaviour:
   itemPrefab: {fileID: 8157590894723528534, guid: 42e60ae85ff493a4b848a686c5fd4042,
     type: 3}
   itemName: Grenade
+  icon: {fileID: 21300000, guid: 086d1b8ac2804c44387cedc310a024e8, type: 3}
   description: "L\u1EF1u \u0111\u1EA1n: N\xE9m m\u1ED9t tr\xE1i l\u1EF1u \u0111\u1EA1n,
     khi ti\u1EBFp \u0111\u1EA5t s\u1EBD ph\xE1t n\u1ED5 sau v\xE0i gi\xE2y."

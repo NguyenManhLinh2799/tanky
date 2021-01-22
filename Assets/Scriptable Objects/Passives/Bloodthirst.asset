@@ -15,5 +15,8 @@ MonoBehaviour:
   passivePrefab: {fileID: 4676703856125467101, guid: 5a2da34428f22d04da18d1960bc0f54d,
     type: 3}
   passiveName: Bloodthirst
+  R: 1
+  G: 0.3
+  B: 0.3
   description: "Kh\xE1t m\xE1u: M\u1ED7i ph\xE1t b\u1EAFn tr\xFAng s\u1EBD h\xFAt
     l\u1EA1i m\u1ED9t l\u01B0\u1EE3ng m\xE1u."

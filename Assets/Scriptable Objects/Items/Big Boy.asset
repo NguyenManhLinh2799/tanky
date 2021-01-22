@@ -15,5 +15,6 @@ MonoBehaviour:
   itemPrefab: {fileID: 8157590894723528534, guid: 7e244c3874757b641b2ad762984e2523,
     type: 3}
   itemName: Big Boy
+  icon: {fileID: 21300000, guid: 346bf4f50dc368342bf93712759d4780, type: 3}
   description: "\u0110\u1EA1n \u0111\u1EA1i b\xE1c: T\u0103ng s\xE1t th\u01B0\u01A1ng
     v\xE0 k\xEDch c\u1EE1 \u0111\u1EA1n."

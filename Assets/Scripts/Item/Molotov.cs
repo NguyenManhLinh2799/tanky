@@ -7,6 +7,10 @@ public class Molotov : Projectile
     float delayedSeconds = 1f;
     float scaleDamage = 0.25f;
 
+    [SerializeField] GameObject fireChildEffect;
+
+    public GameObject fireEffect;
+
     protected override void Start()
     {
         base.Start();
@@ -34,7 +38,10 @@ public class Molotov : Projectile
     {
         if (collision.gameObject.tag == "Ground")
         {
-            GameObject fireEffect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            isLanded = true;
+            fireChildEffect.SetActive(false);
+
+            fireEffect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
             fireEffect.transform.localScale = new Vector3(2f, 2f, 0f);
 
             Destroy(GetComponent<Collider2D>());

@@ -5,14 +5,22 @@ using UnityEngine;
 public class Shield : SelfUse
 {
     GameObject enemy;
-    float distanceFromPlayer = 2f;
+    float distanceFromPlayer = 4f;
     float xOffset;
-    float yOffset = 0.5f;
-    int hitCount = 3;
+    float yOffset = 0.75f;
+    int maxHit;
+    int hitCount;
+
+    [SerializeField] Sprite[] stateSprites;
 
     protected override void Start()
     {
         base.Start();
+
+        // Set maxHit & sprite
+        maxHit = stateSprites.Length;
+        hitCount = 0;
+        GetComponent<SpriteRenderer>().sprite = stateSprites[hitCount];
 
         // Replace the old shield if exists
         Shield[] shields = FindObjectsOfType<Shield>();
@@ -73,13 +81,16 @@ public class Shield : SelfUse
     {
         if (collision.gameObject.tag == "Projectile")
         {
-            hitCount--;
-        }
-
-        if (hitCount <= 0)
-        {
-            Instantiate(effectPrefab, transform.position, effectPrefab.transform.rotation);
-            Destroy(gameObject);
+            hitCount++;
+            if (hitCount >= maxHit)
+            {
+                Instantiate(effectPrefab, transform.position, effectPrefab.transform.rotation);
+                Destroy(gameObject);
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().sprite = stateSprites[hitCount];
+            }            
         }
     }
 }

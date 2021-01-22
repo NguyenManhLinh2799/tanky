@@ -15,4 +15,5 @@ MonoBehaviour:
   itemPrefab: {fileID: 4490406121046104159, guid: 65d77ad5d6988df48bd5567ce1735692,
     type: 3}
   itemName: Heal
+  icon: {fileID: 21300000, guid: 0537c7fabeb567f409000a53629bd419, type: 3}
   description: "B\xECnh m\xE1u: H\u1ED3i l\u1EA1i m\u1ED9t l\u01B0\u1EE3ng m\xE1u."

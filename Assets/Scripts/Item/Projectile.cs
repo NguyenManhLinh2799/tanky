@@ -11,6 +11,10 @@ public class Projectile : MonoBehaviour
 
     protected bool isLanded = false;
 
+    [SerializeField] protected AudioClip fireSound;
+    [SerializeField] protected AudioClip impactSound;
+    protected AudioSource audioSource;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -19,8 +23,32 @@ public class Projectile : MonoBehaviour
 
         playerThatShootThis = gamePhase.playerThatIsInTurn;
 
+        audioSource = GetComponent<AudioSource>();
+
         IgnorePlayerCollision();
         SetInitialVelocity();
+
+        PlayShootEffect();
+    }
+
+    protected virtual void Update()
+    {
+        if (!isLanded)
+        {
+            Vector2 dir = transform.GetComponent<Rigidbody2D>().velocity;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
+
+    protected void PlayShootEffect()
+    {
+        if (fireSound != null)
+        {
+            audioSource.PlayOneShot(fireSound);
+        }
+        
+        playerThatShootThis.GetComponent<Cannon>().PlayShootEffect();
     }
 
     protected void SetInitialVelocity()
@@ -30,6 +58,11 @@ public class Projectile : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
+        if (impactSound != null)
+        {
+            AudioSource.PlayClipAtPoint(impactSound, transform.position);
+        }
+        
         if (!isLanded)
         {
             isLanded = true;

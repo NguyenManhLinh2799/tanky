@@ -11,6 +11,11 @@ public class SuperGlue : Projectile
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        if (impactSound != null)
+        {
+            AudioSource.PlayClipAtPoint(impactSound, transform.position);
+        }
+
         gamePhase.GoToNextTurn();
 
         if (collision.gameObject.tag == "Player")
@@ -36,7 +41,7 @@ public class SuperGlue : Projectile
         }
     }
 
-    void Update()
+    protected override void Update()
     {
         try
         {

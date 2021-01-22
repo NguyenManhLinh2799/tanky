@@ -15,6 +15,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 8157590894723528534, guid: f5abbcca9f272f940a97cc1c5076ffd0,
     type: 3}
   itemName: Triple
+  icon: {fileID: 21300000, guid: aa475864717aa9f4c86e81b112723928, type: 3}
   description: "S\xFAng li\xEAn thanh: B\u1EAFn li\xEAn ti\u1EBFp 3 ph\xE1t \u0111\u1EA1n
     trong m\u1ED9t l\u01B0\u1EE3t, s\xE1t th\u01B0\u01A1ng m\u1ED7i ph\xE1t b\u1EAFn
     s\u1EBD gi\u1EA3m nh\u01B0ng v\u1EABn c\u1ED9ng d\u1ED3n n\u1ED9i t\u1EA1i n\u1EBFu

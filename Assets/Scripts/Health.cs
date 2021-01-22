@@ -8,12 +8,14 @@ public class Health : MonoBehaviour
     [SerializeField] protected GameObject deathEffect;
     public float maxHP = 100f;
     public float currentHP;
-    [SerializeField] Image healthBarImg;
+    public Image healthBarImg;
 
     bool isHit = false;
 
+    [SerializeField] AudioClip deathSound;
+
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         currentHP = maxHP;
     }
@@ -24,12 +26,14 @@ public class Health : MonoBehaviour
 
         if (currentHP <= 0)
         {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+            FindObjectOfType<GamePhase>().EndGame(gameObject);
             Destroy(gameObject);
             Instantiate(deathEffect, transform.position, transform.rotation);
         }
     }
 
-    public void ModifyHealth(float deltaHP)
+    public virtual void ModifyHealth(float deltaHP)
     {
         currentHP += deltaHP;
         if (currentHP > maxHP)

@@ -18,10 +18,11 @@ public class Laser : Projectile
         damage *= 4;
     }
 
-    private void Update()
+    protected override void Update()
     {
-        secondsBeforeSelfDestruct -= Time.deltaTime;
+        base.Update();
 
+        secondsBeforeSelfDestruct -= Time.deltaTime;
         if (secondsBeforeSelfDestruct <= 0)
         {
             DestroyLaser();
@@ -32,6 +33,10 @@ public class Laser : Projectile
     {
         if (collider.gameObject.tag == "Player")
         {
+            if (impactSound != null)
+            {
+                AudioSource.PlayClipAtPoint(impactSound, transform.position);
+            }
             GameObject player = collider.gameObject;
             damage *= secondsBeforeSelfDestruct / duration;
             player.GetComponent<Health>().ModifyHealth(-damage);

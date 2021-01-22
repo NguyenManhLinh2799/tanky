@@ -15,6 +15,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 8157590894723528534, guid: 0418c69a7aebf8c4eaa819611d7cfc6b,
     type: 3}
   itemName: Molotov
+  icon: {fileID: 21300000, guid: 0b2feff50ce8b4b46aef15b0bdf9c4d8, type: 3}
   description: "Bom x\u0103ng: N\xE9m ra m\u1ED9t chai molotov, Khi ti\u1EBFp \u0111\u1EA5t
     s\u1EBD t\u1EA1o m\u1ED9t v\xF9ng l\u1EEDa xung quanh, ng\u01B0\u1EDDi ch\u01A1i
     \u0111i v\xE0o s\u1EBD nh\u1EADn s\xE1t th\u01B0\u01A1ng theo th\u1EDDi gian."
