@@ -59,11 +59,11 @@ public class SuperGlue : Projectile
                 Destroy(gameObject);
             }
         }
-        catch (NullReferenceException ignored)
+        catch (NullReferenceException)
         {
 
         }
-        catch (MissingReferenceException ignored)
+        catch (MissingReferenceException)
         {
 
         }

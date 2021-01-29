@@ -4248,12 +4248,12 @@ PrefabInstance:
     - target: {fileID: 7781314413459356321, guid: 56c2482e376a10d478fba646e41917a9,
         type: 3}
       propertyPath: gameMode
-      value: PvP
+      value: AI
       objectReference: {fileID: 0}
     - target: {fileID: 7781314413459356321, guid: 56c2482e376a10d478fba646e41917a9,
         type: 3}
       propertyPath: map
-      value: Magic Ring
+      value: Unstable
       objectReference: {fileID: 0}
     - target: {fileID: 8413911622341600265, guid: 56c2482e376a10d478fba646e41917a9,
         type: 3}

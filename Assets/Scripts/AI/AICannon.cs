@@ -9,6 +9,7 @@ public class AICannon : Cannon
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         var players = FindObjectsOfType<Cannon>();
         foreach (var player in players)
         {
@@ -24,16 +25,20 @@ public class AICannon : Cannon
         float v0x = (playerTransform.position.x - transform.position.x) / time;
         float v0y = ((playerTransform.position.y - transform.position.y) - 0.5f * Physics2D.gravity.y * time * time) / time;
 
-        // Flip
-        var angleY = transform.localEulerAngles.y;
-        if ((angleY == 0f && v0x < 0f) || (angleY == 180f && v0x > 0f))
+        // Flip        
+        if ((!spriteRenderer.flipX && v0x < 0f) || (spriteRenderer.flipX && v0x > 0f))
         {
-            transform.Rotate(0f, 180f, 0f);
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            cannonTransform.localPosition = new Vector3(
+                -cannonTransform.localPosition.x,
+                cannonTransform.localPosition.y,
+                cannonTransform.localPosition.z);
+            cannonTransform.Rotate(0f, 180f, 0f);
         }
 
         // Change cannon angle
         float angleDeg = Mathf.Atan(Mathf.Abs(v0y / v0x)) * Mathf.Rad2Deg;
-        cannonTransform.localEulerAngles = new Vector3(0f, 0f, angleDeg);
+        cannonTransform.eulerAngles = new Vector3(0f, cannonTransform.eulerAngles.y, angleDeg);
 
         // Change power slider value
         powerSlider.value = Mathf.Sqrt(v0x * v0x + v0y * v0y);

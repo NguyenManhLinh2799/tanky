@@ -28,6 +28,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        //GetComponent<Rigidbody2D>().rotation = transform.rotation.z;
         gasolineBarImg.fillAmount = currentGasoline / maxGasoline;
         if (isMyTurn && !isDisabled)
         {

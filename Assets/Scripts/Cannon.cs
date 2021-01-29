@@ -26,9 +26,12 @@ public class Cannon : MonoBehaviour
     public bool isDisabled = false;
     public bool isLeftDirection;
 
+    protected SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         rotateSound = cannonTransform.GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -97,16 +100,22 @@ public class Cannon : MonoBehaviour
         {
             nextAngle -= 5;
             isLeftDirection = !isLeftDirection;
-            transform.Rotate(0f, 180f, 0f);
+
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            cannonTransform.localPosition = new Vector3(
+                -cannonTransform.localPosition.x,
+                cannonTransform.localPosition.y,
+                cannonTransform.localPosition.z);
+            cannonTransform.Rotate(0f, 180f, 0f);
         }
 
-        cannonTransform.localEulerAngles = new Vector3(0f, 0f, nextAngle);
+        cannonTransform.localEulerAngles = new Vector3(0f, cannonTransform.localEulerAngles.y, nextAngle);
     }
 
     public virtual Vector2 GetInitialVelocity()
     {
         float power = powerSlider.value;
-        float angleDegree = cannonTransform.localEulerAngles.z;
+        float angleDegree = cannonTransform.eulerAngles.z;
         if (isLeftDirection)
         {
             angleDegree = 180 - angleDegree;
