@@ -22,27 +22,34 @@ public class AICannon : Cannon
 
     public override Vector2 GetInitialVelocity()
     {
-        float v0x = (playerTransform.position.x - transform.position.x) / time;
-        float v0y = ((playerTransform.position.y - transform.position.y) - 0.5f * Physics2D.gravity.y * time * time) / time;
-
-        // Flip        
-        if ((!spriteRenderer.flipX && v0x < 0f) || (spriteRenderer.flipX && v0x > 0f))
+        if (isDisabled)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-            cannonTransform.localPosition = new Vector3(
-                -cannonTransform.localPosition.x,
-                cannonTransform.localPosition.y,
-                cannonTransform.localPosition.z);
-            cannonTransform.Rotate(0f, 180f, 0f);
+            return base.GetInitialVelocity();
         }
+        else
+        {
+            float v0x = (playerTransform.position.x - transform.position.x) / time;
+            float v0y = ((playerTransform.position.y - transform.position.y) - 0.5f * Physics2D.gravity.y * time * time) / time;
 
-        // Change cannon angle
-        float angleDeg = Mathf.Atan(Mathf.Abs(v0y / v0x)) * Mathf.Rad2Deg;
-        cannonTransform.eulerAngles = new Vector3(0f, cannonTransform.eulerAngles.y, angleDeg);
+            // Flip        
+            if ((!spriteRenderer.flipX && v0x < 0f) || (spriteRenderer.flipX && v0x > 0f))
+            {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+                cannonTransform.localPosition = new Vector3(
+                    -cannonTransform.localPosition.x,
+                    cannonTransform.localPosition.y,
+                    cannonTransform.localPosition.z);
+                cannonTransform.Rotate(0f, 180f, 0f);
+            }
 
-        // Change power slider value
-        powerSlider.value = Mathf.Sqrt(v0x * v0x + v0y * v0y);
+            // Change cannon angle
+            float angleDeg = Mathf.Atan(Mathf.Abs(v0y / v0x)) * Mathf.Rad2Deg;
+            cannonTransform.eulerAngles = new Vector3(0f, cannonTransform.eulerAngles.y, angleDeg);
 
-        return new Vector2(v0x, v0y);
+            // Change power slider value
+            powerSlider.value = Mathf.Sqrt(v0x * v0x + v0y * v0y);
+
+            return new Vector2(v0x, v0y);
+        }
     }
 }

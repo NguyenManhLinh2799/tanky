@@ -18,7 +18,6 @@ public class GamePhase : MonoBehaviour
     public bool isPlayer1Turn;
     public GameObject playerThatIsInTurn;
     public bool isWaiting = false;
-    bool isEndGame = false;
 
     private void Start()
     {
@@ -119,6 +118,9 @@ public class GamePhase : MonoBehaviour
 
     public void EndGame(GameObject playerLost)
     {
+        var playerWon = GameObject.FindGameObjectWithTag("Player");
+        playerWon.GetComponent<Move>().isDisabled = true;
+        playerWon.GetComponent<Inventory>().isDisabled = true;
         StartCoroutine(WaitThenShowMessage(playerLost));
     }
 

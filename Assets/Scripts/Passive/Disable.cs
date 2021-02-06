@@ -51,7 +51,7 @@ public class Disable : MonoBehaviour
                 enemy.GetComponent<Inventory>().ModifyMana(-manaStealAmount);
             }
         }
-        catch (MissingReferenceException ignored)
+        catch (MissingReferenceException)
         {
 
         }

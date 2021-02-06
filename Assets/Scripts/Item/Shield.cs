@@ -71,7 +71,7 @@ public class Shield : SelfUse
                 GetComponent<Collider2D>().enabled = true;
             }
         }
-        catch (MissingReferenceException ignored)
+        catch (MissingReferenceException)
         {
 
         }

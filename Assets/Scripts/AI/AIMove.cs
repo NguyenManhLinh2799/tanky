@@ -7,7 +7,7 @@ public class AIMove : Move
     AIInventory inventoryComponent;
     float moveTime = 0.75f;
     float timer = 0f;
-    int randomDirection = 1;
+    public int randomDirection = 1;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -21,7 +21,7 @@ public class AIMove : Move
     {
         gasolineBarImg.fillAmount = currentGasoline / maxGasoline;
 
-        if (timer >= 0 && isMyTurn)
+        if (timer > 0 && isMyTurn)
         {
             if (!moveSound.isPlaying)
             {
@@ -45,7 +45,7 @@ public class AIMove : Move
 
     public void MoveTank()
     {
-        if (!isDisabled && currentGasoline > 0)
+        if (!isDisabled && currentGasoline > 0 && timer <= 0)
         {
             timer = moveTime;
             inventoryComponent.isDelayed = true;

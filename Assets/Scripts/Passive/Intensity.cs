@@ -34,7 +34,7 @@ public class Intensity : MonoBehaviour
                 enemy.GetComponent<Health>().ModifyHealth(-(selfLostHP + enemyLostHP) * lostHpPercentage);
             }
         }
-        catch (MissingReferenceException ignored)
+        catch (MissingReferenceException)
         {
 
         }

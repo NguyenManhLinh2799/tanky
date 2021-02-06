@@ -40,7 +40,7 @@ public class Bloodthirst : MonoBehaviour
                 Instantiate(effectPrefab, transform.position, effectPrefab.transform.rotation);
             }
         }
-        catch (MissingReferenceException ignored)
+        catch (MissingReferenceException)
         {
 
         }

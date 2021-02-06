@@ -21,6 +21,8 @@ public class SuperGlue : Projectile
         if (collision.gameObject.tag == "Player")
         {
             enemy = collision.gameObject;
+            enemy.GetComponent<Move>().isDisabled = true;
+            enemy.GetComponent<Cannon>().isDisabled = true;
 
             gluedEffect = Instantiate(effectPrefab, enemy.transform.position, effectPrefab.transform.rotation);
             gluedEffect.transform.parent = enemy.transform;
@@ -32,8 +34,6 @@ public class SuperGlue : Projectile
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(GetComponent<Collider2D>());
             gameObject.tag = "Untagged";
-
-            isAffecting = true;
         }
         else
         {
@@ -43,14 +43,14 @@ public class SuperGlue : Projectile
 
     protected override void Update()
     {
+        //enemy.GetComponent<Move>().isMyTurn && 
         try
         {
-            if (enemy.GetComponent<Move>().isMyTurn && isAffecting)
+            if (enemy.GetComponent<Move>().isMyTurn)
             {
-                enemy.GetComponent<Move>().isDisabled = true;
-                enemy.GetComponent<Cannon>().isDisabled = true;
+                isAffecting = true;
             }
-            else if (!enemy.GetComponent<Move>().isMyTurn && enemy.GetComponent<Move>().isDisabled && enemy.GetComponent<Cannon>().isDisabled)
+            else if (!enemy.GetComponent<Move>().isMyTurn && isAffecting)
             {
                 isAffecting = false;
                 enemy.GetComponent<Move>().isDisabled = false;

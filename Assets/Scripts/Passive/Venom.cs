@@ -35,7 +35,7 @@ public class Venom : MonoBehaviour
                 StartCoroutine(Poisoning());
             }
         }
-        catch (MissingReferenceException ignored)
+        catch (MissingReferenceException)
         {
 
         }
@@ -56,7 +56,7 @@ public class Venom : MonoBehaviour
         {
             enemy.GetComponent<Health>().ModifyHealth(-damagePerSecond);
         }
-        catch (MissingReferenceException ignored)
+        catch (MissingReferenceException)
         {
 
         }
