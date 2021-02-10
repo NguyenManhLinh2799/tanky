@@ -156,7 +156,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8157590894723528534, guid: 12fa6ec8a5196ca468eaf1e612b569e5,
     type: 3}
   itemPrefabs: []
-  shootKey: 271
+  shootKey: 13
   activateItem1Key: 257
   activateItem2Key: 258
   activateItem3Key: 259
